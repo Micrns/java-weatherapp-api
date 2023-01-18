@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Poiret One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
 
 *{
     
     box-sizing: border-box;
+    
     
     
 
@@ -20,7 +21,107 @@ body, html{
     background-color: #36444d;
 
 }
+
+
+/*Weather layout*/
+
+
+
+.weather img{
+    width: 250px;
+    padding-top: 60px;
     
+}
+
+.weather{
+    display: flex;
+    justify-content: center;
+    
+    
+    
+
+}
+
+.weather .weather-condition{
+    position: absolute;
+
+    top: 32%;
+    font-family: "Viga";
+    color: #f0e6e6;
+    
+}
+
+
+/* centering city, date, and time */
+.weather-information{
+    display: flex;
+    justify-content: center;
+
+    padding-top: 40px;
+}
+.weather-information .city{
+    font-family:"Viga";
+    color: #f0e6e6;
+    text-align: center;
+
+}
+
+.weather-information span{
+    font-family: "Viga";
+    color:#f0e6e6;
+    text-align: center;
+}
+
+.weather-information .date{
+    padding-left: 40px;
+}
+
+
+/*centering and modifying temperature*/
+
+.temperature-conditions{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+
+}
+
+.temperature-conditions .temperature{
+    color:#f0e6e6;
+    font-family: "Viga";
+    font-size: 40px;
+}
+
+.temperature-conditions i{
+    color:#f0e6e6;
+    font-size: 12px;
+
+}
+
+.temperature-conditions .celsius{
+    color:#f0e6e6;
+    padding-left: 5px;
+    font-family: "Viga";
+}
+
+
+/* weather details modifications */
+.weather-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+   
+
+}
+
+.weather-details li{
+
+    list-style-type: none;
+    color:#f0e6e6;
+    font-family: "Viga";
+    
+}
 
 
 
@@ -29,9 +130,9 @@ body, html{
    
     position: absolute; 
 
-    box-shadow: 0 0 0 4px #262e33;
-    top: 70%;
-    left: 46%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    top: 80%;
+    left: 48.5%;
     background-color: white;
     border-radius: 60px;
     width:60px;
@@ -65,7 +166,7 @@ body, html{
 .icon i{
     position: sticky;
     padding-top: 20px;
-    padding-left: 19px;
+    padding-left: 30px;
     color: grey;
     font-size: 20px;
 }
@@ -74,7 +175,7 @@ body, html{
     position: relative;
     width: 300px;
     height: 60px;
-    left: 40px;
+    left: 50px;
     bottom: 60px;
     display: flex;
     justify-content: center;
@@ -89,10 +190,12 @@ body, html{
     height: 100%;
     border-style: none;
     font-size: 15px;
+    
     padding: 10px 0;
     border: none;
     outline: none;
 }
+
 
 
 
