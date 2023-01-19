@@ -110,16 +110,22 @@ body, html{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-right: 100px
 
    
 
 }
+
+
 
 .weather-details li{
 
     list-style-type: none;
     color:#f0e6e6;
     font-family: "Viga";
+    float:left;
+    padding: 30px;
+    
     
 }
 
@@ -166,7 +172,7 @@ body, html{
 .icon i{
     position: sticky;
     padding-top: 20px;
-    padding-left: 30px;
+    padding-left: 20px;
     color: grey;
     font-size: 20px;
 }
