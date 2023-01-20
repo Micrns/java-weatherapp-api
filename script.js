@@ -15,7 +15,7 @@ const change_city = document.querySelector('.city');
 
 const weather = document.querySelector('.weather');
 const change_weather_icon = document.querySelector('.icon-weather');
-const change_weather_condition = document.querySelector('.weather-conditions');
+const change_weather_condition = document.querySelector('.weather-condition');
 
 const temperature_info = document.querySelector('.temperature-conditions');
 const temperature = document.querySelector('.temperature');
@@ -86,8 +86,11 @@ function WeatherData(){
         
             temperature.innerHTML = json.current.temp_c;
 
-
-
+            change_wind.innerHTML = json.current.wind_kph + "kph";
+            change_humidity.innerHTML = json.current.humidity + "%";
+            change_weather_condition.innerHTML = json.current.condition.text;
+            
+            
         })
 
 

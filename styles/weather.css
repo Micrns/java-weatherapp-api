@@ -45,7 +45,7 @@ body, html{
 .weather .weather-condition{
     position: absolute;
 
-    top: 32%;
+    top: 43%;
     font-family: "Viga";
     color: #f0e6e6;
     
@@ -137,8 +137,8 @@ body, html{
     position: absolute; 
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    top: 80%;
-    left: 48.5%;
+    top: 90%;
+    left: 48%;
     background-color: white;
     border-radius: 60px;
     width:60px;
@@ -154,7 +154,7 @@ body, html{
 
 .search-bar.active{
     width: 350px;
-    left:40%;
+    left:28%;
     
 }
 
