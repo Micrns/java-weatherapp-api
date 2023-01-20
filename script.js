@@ -63,8 +63,10 @@ function daysofWeek(day, month, year){
     /* creates a list of strings of the days of the week for reference */
 
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const get_day = new Date(month, day, year);
 
-    return weekday[new Date(`${day}/${month}/${year}`).getDay()];
+    console.log(get_day.getDay());
+    return weekday[get_day.getDay()];
 
 };
 
@@ -90,10 +92,27 @@ function WeatherData(){
             change_humidity.innerHTML = json.current.humidity + "%";
             change_weather_condition.innerHTML = json.current.condition.text;
             
-            
+
+            const location_time_period = json.location.localtime;
+
+            // get the current year
+            const current_year = parseInt(location_time_period.substr(0, 4)); 
+            //get the current month
+            const current_month = parseInt(location_time_period.substr(5,2));
+            //get the current day
+            const current_day = parseInt(location_time_period.substr(8, 2));
+            //get the current time 
+            const current_time = location_time_period.substr(11);
+
+
+            change_time.innerHTML = current_time;
+
+            change_date.innerHTML = `${daysofWeek(current_day,current_month,current_year)} ${current_day}, ${current_month} ${current_year}`
         })
 
 
 };
 
 WeatherData();
+
+daysofWeek();
