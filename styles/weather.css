@@ -45,9 +45,8 @@ body, html{
 }
 
 .weather .day-night{
-    padding-left: 30px;
-
     width: 150px;
+    padding-left: 30px;
 }
 
 .weather .weather-condition{

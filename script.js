@@ -14,7 +14,8 @@ const change_date = document.querySelector('.date');
 const change_city = document.querySelector('.city');
 
 const weather = document.querySelector('.weather');
-const change_weather_icon = document.querySelector('.icon-weather');
+const change_weather_icon = document.querySelector('.icon-weather .condition');
+const change_day_night_icon = document.querySelector('.day-night')
 const change_weather_condition = document.querySelector('.weather-condition');
 
 const temperature_info = document.querySelector('.temperature-conditions');
@@ -114,6 +115,23 @@ function WeatherData(){
             change_percipitation.innerHTML = json.current.precip_in + '%';
             
             change_date.innerHTML = `${daysofWeek(current_day,current_month,current_year)} ${current_day}, ${current_month} ${current_year}`;
+
+
+            const iconID = json.current.condition.icon.substr("//cdn.weatherapi.com/weather/64x64/".length);
+            
+            const day_night = iconID.substr(0,5);
+
+            if (day_night == "night"){
+                
+                change_day_night_icon.src = "./icons/night/night.svg"
+            }
+
+            else{
+                change_day_night_icon.src = "./icons/day/day.svg"
+            }
+            
+            
+            
         })
 
 
