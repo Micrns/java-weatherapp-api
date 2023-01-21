@@ -39,13 +39,21 @@ body, html{
     
     
     
+    
+    
 
+}
+
+.weather .day-night{
+    padding-left: 30px;
+
+    width: 150px;
 }
 
 .weather .weather-condition{
     position: absolute;
 
-    top: 43%;
+    top: 320px;
     font-family: "Viga";
     color: #f0e6e6;
     
@@ -136,9 +144,11 @@ body, html{
    
     position: absolute; 
 
+   
+    top: 750px;
+    left: 930px;
+
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    top: 90%;
-    left: 48%;
     background-color: white;
     border-radius: 60px;
     width:60px;
@@ -154,7 +164,7 @@ body, html{
 
 .search-bar.active{
     width: 350px;
-    left:28%;
+    left:780px;
     
 }
 
@@ -167,6 +177,7 @@ body, html{
     outline: none;
     z-index: 1000;
     border-style: none;
+    border: none
 }
 
 .icon i{
@@ -201,6 +212,11 @@ body, html{
     border: none;
     outline: none;
 }
+
+
+
+
+
 
 
 

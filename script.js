@@ -28,6 +28,8 @@ const change_wind = document.querySelector('.wind-speed');
 const form = document.querySelector(".inputLocation");
 const update_search = document.querySelector(".input-search");
 
+const submit = document.querySelector(".submit")
+
 
 
 //this will be the default city when the website loads
@@ -37,7 +39,7 @@ let cityInput = "Palmdale";
 form.addEventListener('submit', (e) => {
 
     /*this will throw an alert when the input is empty */
-    if (search.value.length == 0){
+    if (update_search.value.length == 0){
         alert('Type in a city name');
     }
 
@@ -46,9 +48,11 @@ form.addEventListener('submit', (e) => {
         /*updates the default location to the searched location */
         cityInput = update_search.value;
 
+        change_city.innerHTML = cityInput;
+
         WeatherData();
 
-        search.value = "";
+        update_search.value = "";
     }
 
     e.preventDefault();
@@ -61,11 +65,11 @@ form.addEventListener('submit', (e) => {
 function daysofWeek(day, month, year){
     
     /* creates a list of strings of the days of the week for reference */
-
+    
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const get_day = new Date(month, day, year);
-
-    console.log(get_day.getDay());
+    
+    const get_day = new Date(`${year}-${month}-${day}`);
+    
     return weekday[get_day.getDay()];
 
 };
@@ -88,7 +92,7 @@ function WeatherData(){
         
             temperature.innerHTML = json.current.temp_c;
 
-            change_wind.innerHTML = json.current.wind_kph + "kph";
+            change_wind.innerHTML = json.current.wind_kph + "km/h";
             change_humidity.innerHTML = json.current.humidity + "%";
             change_weather_condition.innerHTML = json.current.condition.text;
             
@@ -104,10 +108,12 @@ function WeatherData(){
             //get the current time 
             const current_time = location_time_period.substr(11);
 
-
             change_time.innerHTML = current_time;
 
-            change_date.innerHTML = `${daysofWeek(current_day,current_month,current_year)} ${current_day}, ${current_month} ${current_year}`
+
+            change_percipitation.innerHTML = json.current.precip_in + '%';
+            
+            change_date.innerHTML = `${daysofWeek(current_day,current_month,current_year)} ${current_day}, ${current_month} ${current_year}`;
         })
 
 
@@ -115,4 +121,4 @@ function WeatherData(){
 
 WeatherData();
 
-daysofWeek();
+
