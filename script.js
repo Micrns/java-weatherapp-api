@@ -14,7 +14,7 @@ const change_date = document.querySelector('.date');
 const change_city = document.querySelector('.city');
 
 const weather = document.querySelector('.weather');
-const change_weather_icon = document.querySelector('.icon-weather .condition');
+const change_weather_icon = document.querySelector('.icon-weather');
 const change_day_night_icon = document.querySelector('.day-night')
 const change_weather_condition = document.querySelector('.weather-condition');
 
@@ -123,14 +123,49 @@ function WeatherData(){
 
             if (day_night == "night"){
                 
-                change_day_night_icon.src = "./icons/night/night.svg"
+                change_day_night_icon.src = "./icons/night/night.svg";
             }
 
             else{
-                change_day_night_icon.src = "./icons/day/day.svg"
+                change_day_night_icon.src = "./icons/day/day.svg";
             }
             
+
+            // changes the weather condition icon to match
+
+            const condition_code = json.current.condition.code;
+            const cloudy_list = [1003, 1006, 1009, 1030, 1135,  1147];
+            const rain_list = [1063, 1072, 1150, 1153, 1168, 1171, 1180, 1183, 1186, 1189, 1192, 1195, 1198, 1201, 1240, 1243, 1246];
+            const snow_list = [1282, 1279, 1066, 1114, 1117, 1210, 1213, 1216, 1219, 1222, 1225];
+            const rain_thunder = [1276, 1273];
             
+            const sleet_list = [1252, 1249, 1207, 1204, 1069];
+
+
+            
+
+            console.log(json.current.condition.code)
+            if (cloudy_list.includes(condition_code )){
+                change_weather_icon.src = "./icons/condition/cloudy/cloudy-svgrepo-com.svg";
+            }
+            else if (rain_list.includes(condition_code )){
+                change_weather_icon.src =  "./icons/condition/rain/rain-svgrepo-com.svg";
+
+            }
+            else if (snow_list.includes(condition_code )){
+                change_weather_icon.src = "./icons/condition/snow/snow-svgrepo-com.svg";
+
+            }
+            else if(rain_thunder.includes(condition_code )) {
+                change_weather_icon.src = "./icons/condition/rain/cloud-storm-svgrepo-com.svg";
+            }  
+            else if (sleet_list.includes(condition_code )) {
+                change_weather_icon.src = "./icons/condition/snow/cloud-snow-rain-svgrepo-com.svg";
+            }
+            else {
+                change_weather_icon.src = "./icons/condition/clear/clear-all-svgrepo-com (1).svg";
+                console.log("Works")
+            }
             
         })
 
