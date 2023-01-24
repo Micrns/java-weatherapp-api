@@ -1,10 +1,16 @@
+
+
+
 const icon = document.querySelector('.icon');
 const search = document.querySelector('.search-bar');
 
 
 icon.onclick = function(){
     search.classList.toggle('active')
+
 }
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -19,7 +25,8 @@ const change_day_night_icon = document.querySelector('.day-night')
 const change_weather_condition = document.querySelector('.weather-condition');
 
 const temperature_info = document.querySelector('.temperature-conditions');
-const temperature = document.querySelector('.temperature');
+const change_celsius = document.querySelector('.cel');
+const change_farenheit = document.querySelector('.faren');
 
 const weather_details = document.querySelector('.weather-details');
 const change_percipitation = document.querySelector('.percipitation');
@@ -29,7 +36,9 @@ const change_wind = document.querySelector('.wind-speed');
 const form = document.querySelector(".inputLocation");
 const update_search = document.querySelector(".input-search");
 
-const submit = document.querySelector(".submit")
+const submit = document.querySelector(".submit");
+
+const region = document.querySelector(".region");
 
 
 
@@ -50,6 +59,7 @@ form.addEventListener('submit', (e) => {
         cityInput = update_search.value;
 
         change_city.innerHTML = cityInput;
+        
 
         WeatherData();
 
@@ -90,8 +100,22 @@ function WeatherData(){
             
             // allows me to see the json
             console.log(json);
-        
-            temperature.innerHTML = json.current.temp_c;
+
+
+            region.innerHTML = json.location.region + ", " + json.location.country;
+            
+            
+            change_celsius.innerHTML = json.current.temp_c;
+            change_farenheit.innerHTML = json.current.temp_f;
+
+            if (json.current.temp_c >= 23 && json.current.temp_f >= 75){
+
+                
+                change_celsius.style.color = "#C26E4A";
+                change_farenheit.style.color = "#C26E4A";
+                document.querySelector('.degree').style.color = "#C26E4A"
+                
+            }
 
             change_wind.innerHTML = json.current.wind_kph + "km/h";
             change_humidity.innerHTML = json.current.humidity + "%";
@@ -164,9 +188,13 @@ function WeatherData(){
             }
             else {
                 change_weather_icon.src = "./icons/condition/clear/clear-all-svgrepo-com (1).svg";
-                console.log("Works")
+                
             }
             
+            
+            
+
+
         })
 
 

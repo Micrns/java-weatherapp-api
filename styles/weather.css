@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
 
+/*Color choice
+
+blue: #7EA6E6
+
+grey: #788394*/
+
+
 *{
     
     box-sizing: border-box;
@@ -18,7 +25,7 @@ body, html{
     height: 100vh;
     
     
-    background-color: #36444d;
+    background-color:  #7EA6E6;
 
 }
 
@@ -27,34 +34,41 @@ body, html{
 
 
 
-.weather img{
-    width: 250px;
-    padding-top: 60px;
+.weather .icon-weather{
+    width: 304px;
+    
     
 }
 
 .weather{
-    display: flex;
-    justify-content: center;
-    
+    position: absolute;
+    top: 30%;
     
     
     
     
 
+}
+
+.weather .icon-weather{
+    position: absolute;
+    left: 200px;
 }
 
 .weather .day-night{
     width: 150px;
-    padding-left: 30px;
+    
+    position: absolute;
+    left: 80px;
 }
 
 .weather .weather-condition{
     position: absolute;
-
-    top: 320px;
+    width: 200px;
+    top: 250px;
     font-family: "Viga";
     color: #f0e6e6;
+    left: 300px;
     
 }
 
@@ -73,10 +87,21 @@ body, html{
 
 }
 
-.weather-information span{
+.weather-information p{
+    text-align: center;
     font-family: "Viga";
     color:#f0e6e6;
+    font-size: 14px;
+    padding-bottom: 10px;
+    
+
+}
+
+.weather-information span{
+    font-family: "Viga";
+    color:#EC9D9D;
     text-align: center;
+    font-size: 30px;
 }
 
 .weather-information .date{
@@ -93,23 +118,21 @@ body, html{
 
 }
 
-.temperature-conditions .temperature{
-    color:#f0e6e6;
+
+
+.celsius, .farenheit{
+    font-size: 60px;
     font-family: "Viga";
-    font-size: 40px;
+    color: #5959ED;
+    padding: 30px;
 }
 
-.temperature-conditions i{
-    color:#f0e6e6;
-    font-size: 12px;
-
+.temperature-conditions .degree{
+    font-size: 30px;
 }
 
-.temperature-conditions .celsius{
-    color:#f0e6e6;
-    padding-left: 5px;
-    font-family: "Viga";
-}
+
+
 
 
 /* weather details modifications */
@@ -138,14 +161,14 @@ body, html{
 
 
 
-/* serach box change */
+/* search box change */
 .search-bar {
    
     position: absolute; 
 
    
-    top: 750px;
-    left: 930px;
+    top: 440px;
+    left: 1600px;
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: white;
@@ -163,7 +186,7 @@ body, html{
 
 .search-bar.active{
     width: 350px;
-    left:780px;
+    left:1450px;
     
 }
 
@@ -217,7 +240,9 @@ body, html{
 
 
 
-
+.center-info{
+   padding-top: 150px;
+}
 
 
 
