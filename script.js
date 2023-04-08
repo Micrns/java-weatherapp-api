@@ -39,6 +39,7 @@ const update_search = document.querySelector(".input-search");
 const submit = document.querySelector(".submit");
 
 const region = document.querySelector(".region");
+const change_am_pm = document.querySelector(".ampm")
 
 
 
@@ -84,6 +85,53 @@ function daysofWeek(day, month, year){
     return weekday[get_day.getDay()];
 
 };
+
+function militarytoStandard(currentTime){
+    console.log(typeof currentTime)
+    let hour = Number(currentTime.substr(0,2))
+    const mins = currentTime.substr(3,4)
+    console.log(typeof hour)
+    if (hour > 12){
+        hour -= 12;
+        change_am_pm.innerHTML = "pm"
+    }
+
+    else if (hour == 0){
+        hour = 12;
+
+    }
+
+    console.log(hour);
+
+    return hour.toString() + ":" + mins;
+
+}
+
+function dayNight(d){
+
+    let current = ""
+    if (d == "night"){
+        current = d
+
+    }
+    else{
+        current = "day"
+    }
+
+    return current
+}
+
+
+function weatherCondition(d, code){
+
+    const cloudy_list = [1003, 1006, 1009, 1030, 1135,  1147];
+    const rain_list = [1063, 1072, 1150, 1153, 1168, 1171, 1180, 1183, 1186, 1189, 1192, 1195, 1198, 1201, 1240, 1243, 1246];
+    const snow_list = [1282, 1279, 1066, 1114, 1117, 1210, 1213, 1216, 1219, 1222, 1225];
+    const rain_thunder = [1276, 1273];
+    
+    const sleet_list = [1252, 1249, 1207, 1204, 1069];
+
+}
 
 
 
@@ -133,31 +181,32 @@ function WeatherData(){
             //get the current time 
             const current_time = location_time_period.substr(11);
 
-            change_time.innerHTML = current_time;
+            //receive the standard time
+            const time = militarytoStandard(current_time);
+
+            
+            // change_time.innerHTML = current_time;
+            change_time.innerHTML = time;
 
 
             change_percipitation.innerHTML = json.current.precip_in + '%';
             
             change_date.innerHTML = `${daysofWeek(current_day,current_month,current_year)} ${current_day}, ${current_month} ${current_year}`;
 
-
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             const iconID = json.current.condition.icon.substr("//cdn.weatherapi.com/weather/64x64/".length);
             
             const day_night = iconID.substr(0,5);
 
-            if (day_night == "night"){
-                
-                change_day_night_icon.src = "./icons/night/night.svg";
-            }
-
-            else{
-                change_day_night_icon.src = "./icons/day/day.svg";
-            }
+            
+            const current_day_night = dayNight(day_night);
             
 
             // changes the weather condition icon to match
 
             const condition_code = json.current.condition.code;
+
+
             const cloudy_list = [1003, 1006, 1009, 1030, 1135,  1147];
             const rain_list = [1063, 1072, 1150, 1153, 1168, 1171, 1180, 1183, 1186, 1189, 1192, 1195, 1198, 1201, 1240, 1243, 1246];
             const snow_list = [1282, 1279, 1066, 1114, 1117, 1210, 1213, 1216, 1219, 1222, 1225];
@@ -187,7 +236,7 @@ function WeatherData(){
                 change_weather_icon.src = "./icons/condition/snow/cloud-snow-rain-svgrepo-com.svg";
             }
             else {
-                change_weather_icon.src = "./icons/condition/clear/clear-all-svgrepo-com (1).svg";
+                change_weather_icon.src = "./icons/day/day.svg";
                 
             }
             

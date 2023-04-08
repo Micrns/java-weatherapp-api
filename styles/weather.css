@@ -53,6 +53,7 @@ body, html{
 .weather .icon-weather{
     position: absolute;
     left: 200px;
+    
 }
 
 .weather .day-night{
@@ -65,10 +66,10 @@ body, html{
 .weather .weather-condition{
     position: absolute;
     width: 200px;
-    top: 250px;
+    top: 340px;
     font-family: "Viga";
     color: #f0e6e6;
-    left: 300px;
+    left: 330px;
     
 }
 
@@ -129,6 +130,7 @@ body, html{
 
 .temperature-conditions .degree{
     font-size: 30px;
+    font-family: "Viga";
 }
 
 
@@ -168,7 +170,7 @@ body, html{
 
    
     top: 440px;
-    left: 1600px;
+    left: 75%;
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: white;
@@ -186,7 +188,7 @@ body, html{
 
 .search-bar.active{
     width: 350px;
-    left:1450px;
+    left:65%;
     
 }
 
